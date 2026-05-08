@@ -1,0 +1,81 @@
+# KingdomCars — Next.js + Tailwind + i18n
+
+Сайт транспортной компании KingdomCars на Next.js 16, Tailwind CSS 4 и next-intl.
+
+## Запуск
+
+```bash
+npm install
+npm run dev
+```
+
+Откроется на http://localhost:3000
+
+## Маршруты
+
+- `/pl` — Польская версия (по умолчанию)
+- `/ru` — Русская версия
+
+Корневой `/` автоматически редиректит на `/pl`.
+
+---
+
+## Добавление нового языка (i18n)
+
+### 1. Создать файл перевода
+
+Скопируйте `src/messages/pl.json` → `src/messages/uk.json` (или `en.json`, `de.json` и т.д.) и переведите все строки.
+
+### 2. Добавить локаль в routing
+
+В файле `src/i18n/routing.ts`:
+
+```ts
+export const routing = defineRouting({
+  locales: ['pl', 'ru', 'uk'],  // ← добавить новый код
+  defaultLocale: 'pl',
+});
+```
+
+### 3. Обновить middleware matcher
+
+В файле `src/middleware.ts`:
+
+```ts
+export const config = {
+  matcher: ['/', '/(pl|ru|uk)/:path*'],  // ← добавить
+};
+```
+
+### 4. Добавить кнопку в Header
+
+В файле `src/components/Header.tsx` — добавить кнопку переключения.
+
+### 5. Готово!
+
+Новый язык будет доступен по адресу `/uk`.
+
+---
+
+## Структура проекта
+
+```
+src/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── [locale]/
+│       ├── layout.tsx
+│       └── page.tsx
+├── components/    (14 компонентов)
+├── i18n/          (routing + request config)
+├── messages/      (pl.json, ru.json)
+└── middleware.ts
+```
+
+## Технологии
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS 4**
+- **next-intl** (i18n)
+- **TypeScript**
