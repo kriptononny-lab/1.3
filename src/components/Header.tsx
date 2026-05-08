@@ -30,6 +30,7 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[76px]">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
+          <img src="/logo.png" alt="KingdomCars" className="h-14 drop-shadow-[0_0_12px_rgba(232,168,37,0.3)]" />
           <span className="font-heading text-xl tracking-[0.18em] text-gold font-semibold">
             KingdomCars
           </span>

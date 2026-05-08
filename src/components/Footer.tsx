@@ -14,9 +14,7 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 text-center">
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-4">
-          <span className="font-heading text-2xl tracking-[0.18em] text-gold font-semibold animate-breathe">
-            KingdomCars
-          </span>
+          <img src="/logo.png" alt="KingdomCars" className="h-20 drop-shadow-[0_0_12px_rgba(232,168,37,0.3)]" />
         </div>
 
         <p className="text-sm text-gray-500 mb-1">{t('tagline')}</p>

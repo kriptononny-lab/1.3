@@ -15,7 +15,7 @@ export default function MapSection() {
             <div className="flex items-center gap-4 mb-8">
               <span className="w-12 h-1 bg-gold rounded-sm" />
               <span className="font-heading text-sm font-semibold uppercase tracking-wider text-gray-400">
-                Pokrycie
+                {t('sectionLabel')}
               </span>
             </div>
             <h3 className="font-heading font-semibold text-[clamp(1.6rem,3vw,2.2rem)] uppercase tracking-wider leading-tight mb-5">
